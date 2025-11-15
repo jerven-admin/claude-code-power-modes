@@ -1,0 +1,37 @@
+{
+  "_note": "Replace YOUR_USERNAME with your actual macOS/Linux username before using.",
+  "permissions": {
+    "allow": [
+      "Read(/Users/YOUR_USERNAME/**)",
+      "Write(/Users/YOUR_USERNAME/dev/**)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)"
+    ],
+    "deny": [
+      "Bash(sudo:*)",
+      "Bash(rm -rf:*)",
+      "Write(/System/**)",
+      "Write(/etc/**)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(pip install:*)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "modes": [
+    {
+      "name": "default",
+      "description": "Standard guarded mode with allow/deny/ask enforcement"
+    },
+    {
+      "name": "bypassPermissions",
+      "description": "More permissive mode surfaced in Shift+Tab; use only on trusted repos",
+      "enabled": true
+    }
+  ],
+  "bypassSelectionHint": "Use Shift+Tab in Claude Code to cycle modes until you reach Bypass Permissions."
+}
